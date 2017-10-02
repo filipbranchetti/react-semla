@@ -1,0 +1,22 @@
+
+.star-block{}
+.star-block__title {
+  margin-bottom: 0;
+}
+.star-block__stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.star-block__stars__star {
+  padding: 20px 20px;
+  cursor: pointer;
+}
+
+.star-block__stars__star:hover {
+  color: red;
+}
+.star-block__stars__star--active {
+  color: red;
+}
