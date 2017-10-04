@@ -43,7 +43,7 @@ class Stars extends Component {
                data-id={starNumber}
                onClick={this.handleClick.bind(this)}
                onMouseEnter={this.hoverStarEnter.bind(this)}
-               onMouseLeave={this.hoverStarLeave.bind(this)}>{starNumber}
+               onMouseLeave={this.hoverStarLeave.bind(this)}>
              </span>
           )}
         )}
