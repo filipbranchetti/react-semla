@@ -4,15 +4,18 @@ import './stars.css';
 
 
 class Stars extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.activeNumber = 0;
     this.savedNumber = 0;
   }
+
   handleClick(event) {
     event.preventDefault()
     var el = event.target
-    this.savedNumber = parseInt(el.getAttribute('data-id'),10),el.getAttribute('data-id');
+    const number =  parseInt(el.getAttribute('data-id'),10);
+    this.savedNumber = number;
+    this.props.vote(this.props.id,number);
   }
   hoverStarEnter(event){
     var el = event.target
@@ -20,18 +23,16 @@ class Stars extends Component {
 
     this.activeNumber =  number;
     this.forceUpdate();
-    //this.setState({});
   }
   hoverStarLeave(event){
     this.activeNumber =  this.savedNumber;
     this.forceUpdate();
-    //this.setState({});
   }
   render() {
     let rows = [], i = 0, len = this.props.stars;
     while (++i <= len){rows.push(i);}
     return (
-      <div className="star-block" id={this.props.id}>
+      <div className="star-block" >
         <h2 className="star-block__title">{this.props.title}</h2>
         <div className="star-block__stars">
         {rows.map(starNumber => {
