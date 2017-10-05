@@ -13,6 +13,7 @@ class App extends Component {
     this.chops = "chops";
     this.cream = "cream";
     this.bun = "bun";
+    this.vote = this.vote.bind(this);
 
     var vote_ids = [
       this.overall,
@@ -21,11 +22,8 @@ class App extends Component {
       this.bun
     ];
     var voted_values = {};
-    for (var id in vote_ids) {
-      voted_values[vote_ids[id]] = 0;
-    }
+    for (var id in vote_ids) {voted_values[vote_ids[id]] = 0;}
     this.state = { votes: voted_values };
-    this.vote = this.vote.bind(this);
   }
 
   vote(id,value) {
@@ -40,10 +38,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Bästa semlan 2017</h1>
         </header>
-        <Stars id={this.overall} title="Sammanvägt" vote={this.vote} stars="5" />
-        <Stars id={this.chops} title="Mandelmassa" vote={this.vote} stars="10"/>
-        <Stars id={this.cream}  title="Grädde" vote={this.vote} stars="5"/>
-        <Stars id={this.bun}  title="Brödet" vote={this.vote} stars="5"/>
+        <Stars id={this.overall} title="Sammanvägt" voteCallback={this.vote} stars="8" />
+        <Stars id={this.chops} title="Mandelmassa" voteCallback={this.vote} stars="10"/>
+        <Stars id={this.cream}  title="Grädde" voteCallback={this.vote} stars="5"/>
+        <Stars id={this.bun}  title="Brödet" voteCallback={this.vote} stars="5"/>
       </div>
     );
   }

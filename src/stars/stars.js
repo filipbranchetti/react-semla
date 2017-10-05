@@ -15,7 +15,7 @@ class Stars extends Component {
     var el = event.target
     const number =  parseInt(el.getAttribute('data-id'),10);
     this.savedNumber = number;
-    this.props.vote(this.props.id,number);
+    this.props.voteCallback(this.props.id,number);
   }
   hoverStarEnter(event){
     var el = event.target
